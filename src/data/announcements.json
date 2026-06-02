@@ -1,8 +1,23 @@
 [
   {
     "id": 1,
-    "title": "Quarterly Meeting",
-    "summary": "Important meeting",
-    "content": "Full announcement content"
+    "title": "New Client Acquired",
+    "date": "May 30, 2026",
+    "summary": "Our company has successfully signed a new international client.",
+    "content": "We are excited to announce a strategic partnership with a major international client. This collaboration will expand our reach into new markets and create exciting opportunities for our teams."
+  },
+  {
+    "id": 2,
+    "title": "Holiday Notice",
+    "date": "June 10, 2026",
+    "summary": "Office will remain closed for the public holiday.",
+    "content": "All offices will remain closed on June 10th. Employees are encouraged to plan their schedules accordingly."
+  },
+  {
+    "id": 3,
+    "title": "Employee Recognition",
+    "date": "June 15, 2026",
+    "summary": "Recognizing outstanding employee performance.",
+    "content": "Congratulations to our Employee of the Month for demonstrating exceptional dedication, teamwork, and leadership."
   }
 ]

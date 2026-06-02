@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "reason": "Family Vacation",
+    "days": 3,
+    "status": "Pending"
+  },
+  {
+    "id": 2,
+    "reason": "Medical Leave",
+    "days": 2,
+    "status": "Approved"
+  }
+]
