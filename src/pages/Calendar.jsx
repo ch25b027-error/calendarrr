@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {  Calendar as BigCalendar,dateFnsLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import {format,parse,startOfWeek,getDay} from "date-fns";
@@ -146,26 +146,42 @@ const [newMeeting, setNewMeeting] = useState({
           style={{height: "700px"}}
         />
       </div>
-      {selectedEvent && (
-  <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div className="bg-white p-4 rounded-xl">
-      <h2 className="text-xl m-4 font-bold">
-        {selectedEvent.title}
-      </h2>
-      <p className="mb-4">
-        {selectedEvent.start.toLocaleString()}
-      </p>
-      <button
-        onClick={() => setSelectedEvent(null)}
-        className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
-      >
-        Close
-      </button>
-    </div>
-  </div>
-)}
+      
+        <AnimatePresence>
+  {selectedEvent && (
+    <motion.div
+      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0, y: -200 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 200 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div className="bg-white p-4 rounded-xl shadow-lg">
+        <h2 className="text-xl m-4 font-bold">
+          {selectedEvent.title}
+        </h2>
+        <p className="mb-4">
+          {selectedEvent.start.toLocaleString()}
+        </p>
+        <button
+          onClick={() => setSelectedEvent(null)}
+          className="mt-4 bg-blue-600 hover:bg-blue-700 transition-colors text-white px-4 py-2 rounded"
+        >
+          Close
+        </button>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
+<AnimatePresence>
 {showModal && (
-  <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+  <motion.div
+    className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
     <div className="bg-white p-6 rounded-xl w-[450px] shadow-xl">
 
       <h2 className="text-2xl font-bold mb-4">
@@ -234,8 +250,9 @@ const [newMeeting, setNewMeeting] = useState({
       </div>
 
     </div>
-  </div>
+  </motion.div>
 )}
+        </AnimatePresence>
     </motion.div>
   );
 }

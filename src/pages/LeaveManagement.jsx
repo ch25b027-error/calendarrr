@@ -9,9 +9,7 @@ export default function Leave() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [reason, setReason] = useState("");
-
   const [success, setSuccess] = useState(false);
-
   const totalPtoDays = 20;
 
   const usedPtoDays = requests.reduce(
@@ -21,7 +19,6 @@ export default function Leave() {
 
   const remainingPtoDays =
     totalPtoDays - usedPtoDays;
-
   const submitLeave = () => {
     if (!startDate || !endDate || !reason)
       return;
@@ -34,8 +31,6 @@ export default function Leave() {
         (end - start) /
           (1000 * 60 * 60 * 24)
       ) + 1;
-
-    if (diff <= 0) return;
 
     const newRequest = {
       id: Date.now(),
@@ -59,14 +54,24 @@ export default function Leave() {
       setSuccess(false);
     }, 2500);
   };
-
   return (
+    <motion.div
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+      >
     <div className="min-h-screen bg-slate-100 p-6">
       <h1 className="text-4xl font-bold text-blue-900 mb-6">
         Leave Management
       </h1>
-
-      {/* Stats */}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <div className="bg-white p-5 rounded-xl shadow">
@@ -128,8 +133,7 @@ export default function Leave() {
 
       <div className="bg-white p-6 rounded-xl shadow mb-8">
         <h2 className="text-2xl font-bold text-blue-900 mb-4">
-          Request Leave
-        </h2>
+          Request Leave</h2>
 
         <div className="grid md:grid-cols-2 gap-4">
           <input
@@ -164,9 +168,7 @@ export default function Leave() {
         <button
           onClick={submitLeave}
           className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"
-        >
-          Submit Request
-        </button>
+        > Submit Request</button>
 
         <AnimatePresence>
           {success && (
@@ -184,8 +186,7 @@ export default function Leave() {
                 scale: 0,
               }}
               className="mt-4 text-green-600 font-semibold"
-            >
-              ✓ Leave Request Submitted
+            > Leave Request Submitted
             </motion.div>
           )}
         </AnimatePresence>
@@ -206,5 +207,6 @@ export default function Leave() {
         </div>
       </div>
     </div>
+    </motion.div>
   );
 }

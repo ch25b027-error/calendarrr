@@ -18,6 +18,9 @@ export default function Announcements() {
           opacity: 1,
           y: 0,
         }}
+        transition={{
+          duration: 0.5,
+        }}
       >
         <h1 className="text-4xl font-bold text-blue-900 mb-2">
           Company Announcements
