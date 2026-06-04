@@ -74,7 +74,7 @@ const Navbar = () => {
           </h1>
         </div>
 
-        <div className="flex text-gray-300 sm:hidden md:block items-center gap-2">
+        <div className="flex text-gray-300 hidden md:block items-center gap-2">
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/">Dashboard</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/employees">Employees</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/calendar">Calendar</NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/announcements">Announcements</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/leave">Leave</NavLink>
         </div>
-        <div className="md:hidden">
+        <div className="block md:hidden">
           <MobileMenu />
         </div>
       </div>

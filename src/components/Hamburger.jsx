@@ -31,7 +31,7 @@ const MobileMenu = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.4 }}
-            className="absolute top-16 text-gray-300 right-0 bg-blue-900 sm:w-80 z-50 md:w-[50%] h-screen flex flex-col items-center p-14 gap-2 shadow-xl"
+            className="absolute top-16 text-gray-300 right-0 bg-blue-900 sm:w-80 z-50 md:w-[60%] h-screen flex flex-col items-center p-14 gap-2 shadow-xl"
           >
             <motion.div
             whileHover={{
