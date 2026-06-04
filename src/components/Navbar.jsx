@@ -33,7 +33,7 @@ const Navbar = () => {
   };
    return (
     <nav className="bg-blue-800 z-100 shadow-lg">
-      <div className="max-w-7xl z-100 mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl z-100 mx-12 px-2 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
 
 
@@ -74,7 +74,7 @@ const Navbar = () => {
           </h1>
         </div>
 
-        <div className="flex text-gray-300 hidden md:block items-center gap-2">
+        <div className="flex text-gray-300 hidden lg:block items-center gap-6">
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/">Dashboard</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/employees">Employees</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/calendar">Calendar</NavLink>
@@ -82,7 +82,7 @@ const Navbar = () => {
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/announcements">Announcements</NavLink>
           <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/leave">Leave</NavLink>
         </div>
-        <div className="block md:hidden">
+        <div className="block lg:hidden">
           <MobileMenu />
         </div>
       </div>
