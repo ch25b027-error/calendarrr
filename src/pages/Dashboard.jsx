@@ -34,7 +34,7 @@ const Dashboard = () => {
           duration: 0.5,
         }}
       >
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-6 p-4 my-4 justify-center  items-center">
+    <div className="grid z-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-6 p-4 my-4 justify-center  items-center">
       <motion.div
         whileHover={{
           y: -5,
