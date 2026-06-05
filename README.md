@@ -30,17 +30,17 @@ To get a local copy up and running, ensure you have Node.js and npm installed.
 git clone [https://github.com/ch25b027-error/charizrd.git](https://github.com/ch25b027-error/charizrd.git)
 cd charizrd
 npm install
-
+```
 ## Features
-
+```
 - The dashboard contains important things that reminds tasks, meetings etc and just by clicking on them we can directly go to the sections related to them.
 - There is a section which contains info about all the employees and we can directly search for a particular person.
 - The calendar section contains a calendar which will show all the meetings that we had, we can also add new meetings and keep track of meetings.
 - The app contains a section to add TODO tasks and keeps track of finished, pending tasks.
 - The leave section contains built in PTO calculator which accurately compute requested leave days across custom date ranges.
-
+```
 ## Tech Stack
-
+```
 **Core**
 - [React](https://reactjs.org/) - Frontend framework
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first styling
@@ -55,7 +55,7 @@ npm install
 
 **Deployment**
 - [Vercel](https://vercel.com/) - Edge network hosting
-
+```
 ## Maintainers
 
 @ch25b027-error
