@@ -78,63 +78,47 @@ export default function Leave() {
           <h3 className="text-gray-500">
             Total PTO
           </h3>
-
           <p className="text-3xl font-bold text-blue-700">
             {totalPtoDays}
           </p>
         </div>
-
         <div className="bg-white p-5 rounded-xl shadow">
           <h3 className="text-gray-500">
             Used PTO
           </h3>
-
           <p className="text-3xl font-bold text-red-600">
             {usedPtoDays}
           </p>
         </div>
-
         <div className="bg-white p-5 rounded-xl shadow">
           <h3 className="text-gray-500">
             Remaining PTO
           </h3>
-
           <p className="text-3xl font-bold text-green-600">
             {remainingPtoDays}
           </p>
         </div>
       </div>
-
       <div className="bg-white p-5 rounded-xl shadow mb-8">
         <h3 className="font-semibold mb-4">
           PTO Usage
         </h3>
-
         <div className="w-full h-5 bg-gray-200 rounded-full overflow-hidden">
           <motion.div
             className="h-full bg-blue-600"
-            animate={{
-              width: `${
-                (usedPtoDays /
-                  totalPtoDays) *
-                100
-              }%`,
-            }}
+            animate={{width: `${(usedPtoDays /totalPtoDays) *100}%`,}}
             transition={{
               duration: 0.8,
             }}
           />
         </div>
-
         <p className="mt-3 text-gray-600">
           {usedPtoDays} / {totalPtoDays} Days Used
         </p>
       </div>
-
       <div className="bg-white p-6 rounded-xl shadow mb-8">
         <h2 className="text-2xl font-bold text-blue-900 mb-4">
           Request Leave</h2>
-
         <div className="grid md:grid-cols-2 gap-4">
           <input
             type="date"
@@ -154,7 +138,6 @@ export default function Leave() {
             className="border p-3 rounded-lg"
           />
         </div>
-
         <textarea
           placeholder="Reason for leave..."
           value={reason}
@@ -164,7 +147,6 @@ export default function Leave() {
           className="w-full border p-3 rounded-lg mt-4"
           rows="4"
         />
-
         <button
           onClick={submitLeave}
           className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg"

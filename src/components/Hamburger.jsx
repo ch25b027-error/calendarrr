@@ -14,7 +14,6 @@ const MobileMenu = () => {
         size={24}
         color="#fff"
       />
-
       <AnimatePresence>
         {isOpen && (
             <>

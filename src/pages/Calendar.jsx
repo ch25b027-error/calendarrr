@@ -216,11 +216,9 @@ const [newMeeting, setNewMeeting] = useState({
         }
         className="w-full border p-2 rounded mb-3"
       />
-
       <label className="block mb-1">
         End Time
       </label>
-
       <input
         type="datetime-local"
         value={newMeeting.end}
@@ -237,16 +235,11 @@ const [newMeeting, setNewMeeting] = useState({
         <button
           onClick={() => setShowModal(false)}
           className="px-4 py-2 bg-gray-300 rounded"
-        >
-          Cancel
-        </button>
-
+        >Cancel</button>
         <button
           onClick={addMeeting}
           className="px-4 py-2 bg-blue-600 text-white rounded"
-        >
-          Save
-        </button>
+        >Save</button>
       </div>
 
     </div>

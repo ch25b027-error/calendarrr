@@ -33,7 +33,7 @@ const Navbar = () => {
   };
    return (
     <nav className="bg-blue-800 z-100 shadow-lg">
-      <div className="max-w-7xl z-100 mx-12 px-2 h-16 flex items-center justify-between">
+      <div className="max-w-7xl z-100 mx-6 px-2 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
 
 

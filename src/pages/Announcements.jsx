@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {motion,AnimatePresence} from "framer-motion";
-import AnnouncementModal from "../components/AnnouncementModal";
+import AnnouncementModal from "../components/Announcement";
 import announcementsData from "../data/announcements.json";
 
 export default function Announcements() {
@@ -114,9 +114,7 @@ export default function Announcements() {
                       )
                     }
                     className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg"
-                  >
-                    Close
-                  </button>
+                  >Close</button>
                 </div>
               </div>
             </motion.div>

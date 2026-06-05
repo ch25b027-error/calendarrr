@@ -1,15 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function TodoCard({
-  task,
-  toggleTask,
-  deleteTask,
-  editingId,
-  editText,
-  setEditText,
-  setEditingId,
-  saveEdit,
-}) {
+export default function TodoCard({ task,toggleTask,deleteTask,editingId,editText,setEditText,setEditingId,saveEdit}) {
   return (
     <motion.li
       layout
@@ -69,7 +60,6 @@ export default function TodoCard({
             Edit
           </button>
         )}
-
         <button
           onClick={() => deleteTask(task.id)}
           className="bg-red-500 text-white px-3 py-1 rounded"

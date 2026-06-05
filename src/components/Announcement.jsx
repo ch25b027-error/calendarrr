@@ -16,21 +16,16 @@ export default function AnnouncementModal({
       <h2 className="text-xl font-bold text-blue-900">
         {announcement.title}
       </h2>
-
       <p className="text-sm text-gray-500 mt-1">
         {announcement.date}
       </p>
-
       <p className="text-gray-700 mt-3">
         {announcement.summary}
       </p>
-
       <button
         onClick={() => onReadMore(announcement)}
         className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg"
-      >
-        Read More
-      </button>
+      >Read More</button>
     </motion.div>
   );
 }

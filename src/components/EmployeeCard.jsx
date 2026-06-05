@@ -21,19 +21,15 @@ export default function EmployeeCard({ employee, variants }) {
           alt={employee.name}
           className="w-24 h-24 rounded-full object-cover border-4 border-blue-100"
         />
-
         <h2 className="mt-4 text-xl font-semibold text-gray-800">
           {employee.name}
         </h2>
-
         <p className="text-blue-600 font-medium">
           {employee.role}
         </p>
-
         <span className="mt-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
           {employee.department}
         </span>
-
         <p className="mt-4 text-gray-500 text-sm text-center">
           {employee.email}
         </p>

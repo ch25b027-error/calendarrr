@@ -21,7 +21,6 @@ export default function Todo() {
     setTasks([...tasks, task]);
     setNewTask("");
   };
-
   const toggleTask = (id) => {
     setTasks(
       tasks.map((task) =>
