@@ -11,13 +11,11 @@ export default function Todo() {
 
   const addTask = () => {
     if (!newTask.trim()) return;
-
     const task = {
       id: Date.now(),
       title: newTask,
       completed: false,
     };
-
     setTasks([...tasks, task]);
     setNewTask("");
   };
@@ -54,7 +52,6 @@ export default function Todo() {
   const completedTasks = tasks.filter(
     (task) => task.completed
   ).length;
-
   const pendingTasks =  tasks.length - completedTasks;
 
   return (

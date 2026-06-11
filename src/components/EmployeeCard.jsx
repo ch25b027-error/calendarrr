@@ -13,8 +13,7 @@ export default function EmployeeCard({ employee, variants }) {
         type: "spring",
         stiffness: 300,
       }}
-      className="bg-white rounded-xl shadow-md p-5 cursor-pointer"
-    >
+      className="bg-white rounded-xl shadow-md p-5 cursor-pointer">
       <div className="flex flex-col items-center">
         <img
           src={employee.avatar}

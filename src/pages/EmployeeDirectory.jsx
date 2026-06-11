@@ -37,13 +37,9 @@ const departments = [
 ];
 
 export default function EmployeeDirectory() {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState(employeesData);
   const [searchQuery, setSearchQuery] = useState("");
   const [department, setDepartment] = useState("All");
-
-  useEffect(() => {
-    setEmployees(employeesData);
-  }, []);
 
   const filteredEmployees = employees.filter((employee) => {
     const matchesSearch = employee.name

@@ -48,13 +48,11 @@ const [newMeeting, setNewMeeting] = useState({
   };
 
   setMeetings([...meetings, meeting]);
-
   setNewMeeting({
     title: "",
     start: "",
     end: "",
   });
-
   setShowModal(false);
 };
 

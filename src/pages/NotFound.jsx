@@ -16,8 +16,7 @@ const NotFound = () => {
         }}
         transition={{
           duration: 0.5,
-        }}
-      >
+        }}>
             <h1 className="text-3xl text-blue-800 flex items-center justify-center font-bold">Page Not Found</h1>
             <img src={notFoundImage} alt="Not Found" className="mx-auto w-4/5 lg:w-1/2 h-auto mb-4" />
             <motion.p

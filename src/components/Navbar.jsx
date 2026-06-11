@@ -36,7 +36,6 @@ const Navbar = () => {
       <div className="max-w-7xl z-100 mx-6 px-2 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
 
-
           <div className="flex items-center justify-center h-16 bg-blue-800 rounded-lg">
       
             <motion.svg 
@@ -75,12 +74,48 @@ const Navbar = () => {
         </div>
 
         <div className="flex text-gray-300 hidden lg:block items-center gap-6">
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/">Dashboard</NavLink>
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/employees">Employees</NavLink>
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/calendar">Calendar</NavLink>
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/todo">Todo</NavLink>
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/announcements">Announcements</NavLink>
-          <NavLink className="hover:text-white hover:bg-blue-600 p-2 rounded-lg" to="/leave">Leave</NavLink>
+          <NavLink to="/" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Dashboard</NavLink>
+          <NavLink to="/employees" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Employees</NavLink>
+          <NavLink to="/calendar" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Calendar</NavLink>
+          <NavLink to="/todo" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Todo</NavLink>
+          <NavLink to="/announcements" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Announcements</NavLink>
+          <NavLink to="/leave" className={({ isActive }) =>
+    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+      isActive
+        ? "bg-blue-600 text-white"
+        : "text-gray-400"
+    }`
+  }>Leave</NavLink>
         </div>
         <div className="block lg:hidden">
           <MobileMenu />

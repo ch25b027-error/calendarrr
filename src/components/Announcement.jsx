@@ -1,18 +1,14 @@
 import { motion } from "framer-motion";
 import announcementsData from "../data/announcements.json";
 
-export default function AnnouncementModal({
-  announcement,
-  onReadMore,
-}) {
+export default function AnnouncementModal({announcement,onReadMore}) {
   return (
     <motion.div
       whileHover={{
         y: -5,
         scale: 1.02,
       }}
-      className="bg-white rounded-xl shadow-md p-5"
-    >
+      className="bg-white rounded-xl shadow-md p-5">
       <h2 className="text-xl font-bold text-blue-900">
         {announcement.title}
       </h2>

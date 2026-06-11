@@ -5,7 +5,6 @@ import leaveData from "../data/leaveReuest.json";
 
 export default function Leave() {
   const [requests, setRequests] = useState(leaveData);
-
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [reason, setReason] = useState("");
@@ -13,8 +12,7 @@ export default function Leave() {
   const totalPtoDays = 20;
 
   const usedPtoDays = requests.reduce(
-    (total, request) => total + request.days,
-    0
+    (total, request) => total + request.days, 0
   );
 
   const remainingPtoDays =
@@ -22,16 +20,9 @@ export default function Leave() {
   const submitLeave = () => {
     if (!startDate || !endDate || !reason)
       return;
-
     const start = new Date(startDate);
     const end = new Date(endDate);
-
-    const diff =
-      Math.ceil(
-        (end - start) /
-          (1000 * 60 * 60 * 24)
-      ) + 1;
-
+    const diff = Math.ceil( (end - start) / (1000 * 60 * 60 * 24) ) + 1;
     const newRequest = {
       id: Date.now(),
       reason,
@@ -43,11 +34,9 @@ export default function Leave() {
       ...requests,
       newRequest,
     ]);
-
     setStartDate("");
     setEndDate("");
     setReason("");
-
     setSuccess(true);
 
     setTimeout(() => {
@@ -68,7 +57,7 @@ export default function Leave() {
           duration: 0.5,
         }}
       >
-    <div className="min-h-screen bg-slate-100 p-6">
+    <div className="min-h-screen bg-slate-100 p-6 mb-8">
       <h1 className="text-4xl font-bold text-blue-900 mb-6">
         Leave Management
       </h1>

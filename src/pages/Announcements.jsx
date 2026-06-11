@@ -4,9 +4,7 @@ import AnnouncementModal from "../components/Announcement";
 import announcementsData from "../data/announcements.json";
 
 export default function Announcements() {
-  const [selectedAnnouncement, setSelectedAnnouncement] =
-    useState(null);
-
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
   return (
     <div className="min-h-screen bg-slate-100 p-6">
       <motion.div
