@@ -57,7 +57,8 @@ export default function Calendar() {
 
   const fetchSpaces = async () => {
     if (!token) return;
-    const res = await fetch("http://localhost:5000/api/spaces", { headers: { "Authorization": `Bearer ${token}` }});
+    const API_URL = import.meta.env.VITE_API_URL;
+    const res = await fetch(`${API_URL}/api/spaces`, { headers: { "Authorization": `Bearer ${token}` }});
     if (res.ok) {
       const data = await res.json()
       const formattedSpaces = data.map(s => ({
@@ -70,7 +71,8 @@ export default function Calendar() {
 
   const fetchMeetings = async () => {
     if (!token) return;
-    const res = await fetch("http://localhost:5000/api/meetings", { headers: { "Authorization": `Bearer ${token}` }});
+    const API_URL = import.meta.env.VITE_API_URL;
+    const res = await fetch(`${API_URL}/api/meetings`, { headers: { "Authorization": `Bearer ${token}` }});
     if (res.ok) {
       const data = await res.json();
       const formattedMeetings = data.map(m => ({ ...m, start: new Date(m.start), end: new Date(m.end) }));
