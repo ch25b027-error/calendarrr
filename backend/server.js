@@ -7,6 +7,12 @@ import authRoutes from './routes/auth.js'
 import todoRoutes from './routes/todos.js'
 import spaceRoutes from './routes/spaces.js'
 import meetingRoutes from './routes/meetings.js'
+import cors from 'cors';
+
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://calendarrr-navy.vercel.app/'],
+  credentials: true
+}));
 
 dns.setServers(['1.1.1.1', '1.0.0.1']);
 
