@@ -82,7 +82,8 @@ export default function Calendar() {
 
   const handleCreateSpace = async () => {
     if (!spaceInput) return;
-    const res = await fetch("http://localhost:5000/api/spaces", {
+    const API_URL = import.meta.env.VITE_API_URL;
+    const res = await fetch(`${API_URL}/api/spaces`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
       body: JSON.stringify({ name: spaceInput })
@@ -99,7 +100,8 @@ export default function Calendar() {
 
   const handleJoinSpace = async () => {
     if (!spaceInput) return;
-    const res = await fetch("http://localhost:5000/api/spaces/join", {
+    const API_URL = import.meta.env.VITE_API_URL;
+    const res = await fetch(`${API_URL}/api/spaces/join`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
       body: JSON.stringify({ joinCode: spaceInput })
@@ -117,8 +119,8 @@ export default function Calendar() {
 
   const addMeeting = async () => {
     if (!newMeeting.title || !newMeeting.start || !newMeeting.end || !newMeeting.spaceId) return;
-
-    const res = await fetch("http://localhost:5000/api/meetings", {
+    const API_URL = import.meta.env.VITE_API_URL;
+    const res = await fetch(`${API_URL}/api/meetings`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
       body: JSON.stringify(newMeeting)

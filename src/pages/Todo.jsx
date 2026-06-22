@@ -15,7 +15,8 @@ export default function Todo() {
       if (!token) return; 
 
       try {
-        const response = await fetch("http://localhost:5000/api/todos", {
+        const API_URL = import.meta.env.VITE_API_URL;
+        const response = await fetch(`${API_URL}/api/todos`, {
           headers: { "Authorization": `Bearer ${token}` }
         });
         const data = await response.json();
@@ -33,7 +34,8 @@ export default function Todo() {
     if (!newTask.trim()) return;
     
     try {
-      const response = await fetch("http://localhost:5000/api/todos", {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${API_URL}/api/todos`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -54,7 +56,8 @@ export default function Todo() {
     const taskToToggle = tasks.find(t => t.id === id);
     
     try {
-      await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      await fetch(`${API_URL}/api/todos/${id}`, {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",
@@ -76,7 +79,8 @@ export default function Todo() {
 
   const deleteTask = async (id) => {
     try {
-      await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      await fetch(`${API_URL}/api/todos/${id}`, {
         method: "DELETE",
         headers: { "Authorization": `Bearer ${token}` }
       });
@@ -91,7 +95,8 @@ export default function Todo() {
     const taskToEdit = tasks.find(t => t.id === id);
     
     try {
-      await fetch(`http://localhost:5000/api/todos/${id}`, {
+      const API_URL = import.meta.env.VITE_API_URL;
+      await fetch(`${API_URL}/api/todos/${id}`, {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",
