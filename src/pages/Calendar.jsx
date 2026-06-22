@@ -119,11 +119,16 @@ export default function Calendar() {
 
   const addMeeting = async () => {
     if (!newMeeting.title || !newMeeting.start || !newMeeting.end || !newMeeting.spaceId) return;
+    const formattedMeeting = {
+      ...newMeeting,
+      start: new Date(newMeeting.start).toISOString(),
+      end: new Date(newMeeting.end).toISOString()
+    };
     const API_URL = import.meta.env.VITE_API_URL;
     const res = await fetch(`${API_URL}/api/meetings`, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
-      body: JSON.stringify(newMeeting)
+      body: JSON.stringify(formattedMeeting)
     });
 
     if (res.ok) {
