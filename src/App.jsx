@@ -11,6 +11,8 @@ import Calendar from './pages/Calendar';
 import Announcements from './pages/Announcements';
 import Leave from './pages/LeaveManagement';
 import NotFound from './pages/NotFound';
+import Signup from './components/Signup'
+import Login from './components/Login'
 import './index.css'
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/announcements" element={<Announcements />} />
           <Route path="/leave" element={<Leave />} />
+          <Route path='/signup' element={<Signup/>} />
+          <Route path='/login' element={<Login/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

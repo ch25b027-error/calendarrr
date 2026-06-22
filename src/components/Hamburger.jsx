@@ -80,6 +80,22 @@ const MobileMenu = () => {
               stiffness: 300
             }} className="w-full">
             <Link className='hover:text-white hover:bg-blue-800 p-3 w-full h-12 flex items-center justify-center rounded-lg' onClick={() => setIsOpen(false)} to="/leave">Leave</Link></motion.div>
+            <motion.div
+            whileHover={{
+              y: -3,
+              scale: 1.2,
+              type: "spring",
+              stiffness: 300
+            }} className="w-full">
+            <Link className='hover:text-white hover:bg-blue-800 bg-blue-400 text-gray-300 border-black font-semibold p-3 w-full h-12 flex items-center justify-center rounded-lg' onClick={() => setIsOpen(false)} to="/signup">SignUp</Link></motion.div>
+            <motion.div
+            whileHover={{
+              y: -3,
+              scale: 1.2,
+              type: "spring",
+              stiffness: 300
+            }} className="w-full">
+            <Link className='hover:text-white hover:bg-blue-800 bg-blue-400 text-gray-300 border-black font-semibold p-3 w-full h-12 flex items-center justify-center rounded-lg' onClick={() => setIsOpen(false)} to="/Login">Login</Link></motion.div>
           </motion.div>
 
         </>

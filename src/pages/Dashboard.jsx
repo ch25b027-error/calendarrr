@@ -6,6 +6,8 @@ import announcementsData from "../data/announcements.json";
 import tasksData from "../data/tasks.json";
 import meetingsData from "../data/meetings.json";
 import leaveData from "../data/leaveReuest.json";
+import Signup from "../components/Signup"
+import Login from "../components/Login"
 
 const Dashboard = () => {
   const pendingTasks = tasksData.filter(
@@ -34,7 +36,7 @@ const Dashboard = () => {
           duration: 0.5,
         }}
       >
-    <div className="grid z-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-6 p-4 my-4 justify-center  items-center">
+    <div className="grid z-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 my-4 justify-center  items-center">
       <motion.div
         whileHover={{
           y: -5,
@@ -93,6 +95,7 @@ const Dashboard = () => {
           icon={<Bell />}
         />
         </Link>
+
       </motion.div>
     </div>
     </motion.div>

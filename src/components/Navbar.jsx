@@ -4,6 +4,10 @@ import { motion } from "framer-motion";
 import MobileMenu from "./Hamburger";
 
 const Navbar = () => {
+  const isLoggedIn = !!localStorage.getItem('token');
+  
+  const storedUsername = localStorage.getItem('username') || '';
+  const initial = storedUsername ? storedUsername.charAt(0).toUpperCase() : '?';
     const svgVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,10 +37,10 @@ const Navbar = () => {
   };
    return (
     <nav className="bg-blue-800 z-100 shadow-lg">
-      <div className="max-w-7xl z-100 mx-6 px-2 h-16 flex items-center justify-between">
+      <div className="max-w-8xl w-full z-100 mx-auto px-2 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
 
-          <div className="flex items-center justify-center h-16 bg-blue-800 rounded-lg">
+          <div className="flex items-center mx-4 justify-center h-16 bg-blue-800 rounded-lg">
       
             <motion.svg 
                 width="36" 
@@ -73,49 +77,68 @@ const Navbar = () => {
           </h1>
         </div>
 
-        <div className="flex text-gray-300 hidden lg:block items-center gap-6">
+        <div className=" text-gray-300 mr-6 hidden lg:flex items-center gap-2">
           <NavLink to="/" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Dashboard</NavLink>
           <NavLink to="/employees" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Employees</NavLink>
           <NavLink to="/calendar" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Calendar</NavLink>
           <NavLink to="/todo" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 mx-1 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Todo</NavLink>
           <NavLink to="/announcements" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Announcements</NavLink>
           <NavLink to="/leave" className={({ isActive }) =>
-    `p-2 rounded-lg hover:bg-blue-700 hover:text-white ${
+    `px-4 py-2 mx-1 rounded-lg hover:bg-blue-700 hover:text-white ${
       isActive
         ? "bg-blue-600 text-white"
         : "text-gray-400"
     }`
   }>Leave</NavLink>
+          <NavLink to="/signup" className={({ isActive }) =>
+  `px-4 py-2 rounded-lg border-black transition-colors ${
+    isActive
+      ? "bg-blue-500 text-white shadow-sm"
+      : "bg-gray-200 text-gray-800 hover:bg-blue-400 hover:text-white"
+  }`
+}>SignUp</NavLink>
+          <NavLink to="/login" onClick={() => {
+              if (isLoggedIn) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('username');
+              }
+            }}
+            title={isLoggedIn ? "Log out / Change Account" : "Log In"}
+            className={
+              isLoggedIn
+                ? "w-10 h-10 flex items-center justify-center rounded-full bg-white text-blue-500 text-lg font-bold hover:bg-blue-700 border-white border-2 hover:text-white transition-colors shadow-md ml-2"
+                : "px-4 py-2 bg-gray-200 text-gray-800 hover:bg-blue-400 hover:text-white rounded-lg transition-colors"
+            }>{isLoggedIn ? initial: "Login"}</NavLink>
         </div>
         <div className="block lg:hidden">
           <MobileMenu />
