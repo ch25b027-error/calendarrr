@@ -29,7 +29,7 @@ export default function Signup() {
       
       if (response.ok) {
         setMessage('Signup successful! You can now log in.');
-        window.location.href = '/login';
+        window.location.href = '/Login';
       } else {
         setMessage(data.message || 'Signup failed');
       }
