@@ -1,10 +1,10 @@
 import express from 'express';
 import Todo from '../Todo.js';
-import authMiddleware from '../authMiddleware.js';
+import { requireAuth } from '../authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   try {
     const todos = await Todo.find({ userId: req.userId });
     res.json(todos);
@@ -13,11 +13,11 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 });
 
-router.post('/', authMiddleware, async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
     const newTodo = new Todo({
       title: req.body.title,
-      userId: req.userId // Automatically linked to the logged-in user!
+      userId: req.userId 
     });
     const savedTodo = await newTodo.save();
     res.json(savedTodo);
@@ -26,7 +26,7 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 });
 
-router.put('/:id', authMiddleware, async (req, res) => {
+router.put('/:id', requireAuth, async (req, res) => {
   try {
     const updatedTodo = await Todo.findOneAndUpdate(
       { _id: req.params.id, userId: req.userId },
@@ -39,7 +39,7 @@ router.put('/:id', authMiddleware, async (req, res) => {
   }
 });
 
-router.delete('/:id', authMiddleware, async (req, res) => {
+router.delete('/:id', requireAuth, async (req, res) => {
   try {
     await Todo.findOneAndDelete({ _id: req.params.id, userId: req.userId });
     res.json({ message: 'Todo deleted' });

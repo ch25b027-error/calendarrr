@@ -7,6 +7,7 @@ import authRoutes from './routes/auth.js'
 import todoRoutes from './routes/todos.js'
 import spaceRoutes from './routes/spaces.js'
 import meetingRoutes from './routes/meetings.js'
+import { checkUser } from './authMiddleware.js';
 
 const app = express();
 

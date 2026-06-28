@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoutes';
 import Dashboard from './pages/Dashboard';
 import Employees from './pages/EmployeeDirectory';
 import Todo from './pages/Todo';
@@ -23,14 +24,48 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/employees" element={<Employees />} />
-          <Route path="/todo" element={<Todo />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/announcements" element={<Announcements />} />
-          <Route path="/leave" element={<Leave />} />
           <Route path='/signup' element={<Signup/>} />
           <Route path='/login' element={<Login/>} />
-          <Route path="*" element={<NotFound />} />
+
+          <Route
+          path='/employees'
+          element={
+            <ProtectedRoute>
+              <Employees/>
+            </ProtectedRoute>
+          }/>
+
+          <Route
+          path='/calendar'
+          element={
+            <ProtectedRoute>
+              <Calendar/>
+            </ProtectedRoute>
+          }/>
+
+          <Route
+          path='/todo'
+          element={
+            <ProtectedRoute>
+              <Todo/>
+            </ProtectedRoute>
+          }/>
+
+          <Route
+          path='/announcements'
+          element={
+            <ProtectedRoute>
+              <Announcements/>
+            </ProtectedRoute>
+          }/>
+
+          <Route
+          path='/leave'
+          element={
+            <ProtectedRoute>
+              <Leave/>
+            </ProtectedRoute>
+          }/>
         </Routes>
       </BrowserRouter>
     </>

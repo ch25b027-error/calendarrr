@@ -1,11 +1,10 @@
 import express from 'express';
 import Meeting from '../Meeting.js';
 import Space from '../Space.js';
-import authMiddleware from '../authMiddleware.js';
-
+import { requireAuth } from '../authMiddleware.js'; 
 const router = express.Router();
 
-router.get('/', authMiddleware, async (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   try {
     const userSpaces = await Space.find({ members: req.userId });
     const spaceIds = userSpaces.map(space => space._id);
@@ -17,7 +16,7 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 });
 
-router.post('/', authMiddleware, async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
     const { title, start, end, spaceId } = req.body;
     const space = await Space.findOne({ _id: spaceId, members: req.userId });

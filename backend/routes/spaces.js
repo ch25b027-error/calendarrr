@@ -1,9 +1,10 @@
 import express from 'express';
 import Space from '../Space.js';
-import authMiddleware from '../authMiddleware.js';
+import { requireAuth } from '../authMiddleware.js';
 
 const router = express.Router();
-router.get('/', authMiddleware, async (req, res) => {
+
+router.get('/', requireAuth, async (req, res) => {
   try {
     const spaces = await Space.find({ members: req.userId });
     res.json(spaces);
@@ -12,7 +13,7 @@ router.get('/', authMiddleware, async (req, res) => {
   }
 });
 
-router.post('/', authMiddleware, async (req, res) => {
+router.post('/', requireAuth, async (req, res) => {
   try {
     const joinCode = Math.random().toString(36).substring(2, 8).toUpperCase();
     
@@ -29,10 +30,11 @@ router.post('/', authMiddleware, async (req, res) => {
   }
 });
 
-router.post('/join', authMiddleware, async (req, res) => {
+router.post('/join', requireAuth, async (req, res) => {
   try {
     const space = await Space.findOne({ joinCode: req.body.joinCode.toUpperCase() });
     if (!space) return res.status(404).json({ message: 'Invalid join code' });
+    
     if (space.members.includes(req.userId)) {
       return res.status(400).json({ message: 'You are already in this space' });
     }
