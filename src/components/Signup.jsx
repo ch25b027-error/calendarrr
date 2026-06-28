@@ -43,7 +43,7 @@ export default function Signup() {
         setMessage('Signup successful! Redirecting to login...');
         setTimeout(() => {
           window.location.href = '/Login';
-        }, 1000); 
+        }); 
       } else {
         if (data.errors) {
           setUsernameError(data.errors.username);

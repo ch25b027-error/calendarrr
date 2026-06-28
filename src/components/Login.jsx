@@ -44,7 +44,7 @@ export default function Login() {
         
         setTimeout(() => {
           window.location.href = '/';
-        }, 500);
+        });
       } else {
         if (data.errors) {
           setEmailError(data.errors.email);
