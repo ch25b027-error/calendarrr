@@ -21,6 +21,10 @@ dns.setServers(['1.1.1.1', '1.0.0.1']);
 app.use(cors());
 app.use(express.json());
 
+app.get('/ping', (req, res) => {
+  res.status(200).send('OK'); 
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 app.use('/api/spaces', spaceRoutes);
